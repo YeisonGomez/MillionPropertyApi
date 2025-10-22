@@ -27,8 +27,14 @@ builder.Services.AddCors(options =>
     });
 });
 
-var connectionString = builder.Configuration.GetConnectionString("MongoDB");
-var databaseName = builder.Configuration["DatabaseName"];
+// Leer configuración de MongoDB desde variables de entorno primero, luego appsettings
+var connectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") 
+    ?? builder.Configuration.GetConnectionString("MongoDB") 
+    ?? throw new InvalidOperationException("MongoDB connection string not configured");
+
+var databaseName = Environment.GetEnvironmentVariable("MONGODB_DATABASE_NAME") 
+    ?? builder.Configuration["DatabaseName"] 
+    ?? "MillionPropertyDB";
 
 builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
 {

@@ -6,6 +6,8 @@ API GraphQL para gestión de propiedades inmobiliarias desarrollada con .NET 9, 
 
 ## 🚀 Inicio Rápido
 
+### 📦 **Para Desarrollo Local**
+
 ### 1️⃣ **Clonar el Proyecto**
 
 ```bash
@@ -13,7 +15,20 @@ git clone <repository-url>
 cd MillionPropertyApi
 ```
 
-### 2️⃣ **Instalar MongoDB**
+### 2️⃣ **Configurar Variables de Entorno (Opcional)**
+
+Puedes usar `appsettings.json` o variables de entorno:
+
+```bash
+# Copiar plantilla
+cp .env.example .env
+
+# Editar con tus valores (opcional para desarrollo local)
+# MONGODB_CONNECTION_STRING=mongodb://localhost:27017
+# MONGODB_DATABASE_NAME=MillionPropertyDB
+```
+
+### 3️⃣ **Instalar MongoDB**
 
 Si no tienes MongoDB instalado:
 
@@ -27,7 +42,7 @@ brew services start mongodb-community
 **Windows/Linux:**
 Descarga desde [mongodb.com/try/download/community](https://www.mongodb.com/try/download/community)
 
-### 3️⃣ **Importar Data Dummy (Muy Importante! 🎯)**
+### 4️⃣ **Importar Data Dummy (Muy Importante! 🎯)**
 
 Antes de iniciar el API, importa la data de prueba:
 
@@ -60,19 +75,6 @@ mongoimport --db MillionPropertyDB --collection propertyImages --file propertyim
 mongoimport --db MillionPropertyDB --collection propertyTraces --file propertytraces.json --jsonArray
 ```
 
-### 4️⃣ **Configurar el API**
-
-Verifica que `appsettings.json` tenga la conexión correcta:
-
-```json
-{
-  "ConnectionStrings": {
-    "MongoDB": "mongodb://localhost:27017"
-  },
-  "DatabaseName": "MillionPropertyDB"
-}
-```
-
 ### 5️⃣ **Ejecutar el Proyecto**
 
 ```bash
@@ -100,6 +102,26 @@ dotnet run --launch-profile https
 - `base_url`: `http://localhost:5189` (o `https://localhost:7287` si usas HTTPS)
 - `owner_id`: Copia un ID después de crear o consultar un Owner
 - `property_id`: Copia un ID después de crear o consultar una Property
+
+---
+
+## 🚂 Deployment en Railway (Producción)
+
+Para desplegar este proyecto en producción, consulta la guía completa:
+
+📖 **[Ver DEPLOYMENT.md](./DEPLOYMENT.md)**
+
+**Resumen rápido:**
+
+1. Configura MongoDB Atlas (gratuito)
+2. Crea proyecto en [Railway.app](https://railway.app)
+3. Conecta tu repositorio de GitHub
+4. Configura variables de entorno:
+   - `MONGODB_CONNECTION_STRING`: Tu connection string de MongoDB Atlas
+   - `MONGODB_DATABASE_NAME`: `MillionPropertyDB`
+5. Railway despliega automáticamente! 🚀
+
+**URL de producción:** `https://tu-proyecto.railway.app/graphql`
 
 ---
 
