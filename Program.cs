@@ -80,7 +80,11 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+// Solo usar HTTPS redirection en desarrollo, no en producción (Render maneja SSL)
+if (app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 // Usar CORS
 app.UseCors("AllowAll");

@@ -105,23 +105,35 @@ dotnet run --launch-profile https
 
 ---
 
-## 🚂 Deployment en Railway (Producción)
+## 🚀 Deployment en Producción
 
 Para desplegar este proyecto en producción, consulta la guía completa:
 
 📖 **[Ver DEPLOYMENT.md](./DEPLOYMENT.md)**
 
+### **Opciones 100% Gratuitas:**
+
+#### **Opción 1: Render (Recomendado para empezar) 🎨**
+- ✅ 100% Gratis (750 horas/mes)
+- ✅ Deploy automático desde GitHub
+- ⚠️ Se duerme después de 15 min sin uso
+
+#### **Opción 2: Fly.io (Mejor rendimiento) 🪰**
+- ✅ 100% Gratis (3 apps)
+- ✅ NO se duerme (siempre activo)
+- ✅ Más rápido que Render
+
 **Resumen rápido:**
 
 1. Configura MongoDB Atlas (gratuito)
-2. Crea proyecto en [Railway.app](https://railway.app)
-3. Conecta tu repositorio de GitHub
+2. Importa data dummy a Atlas
+3. Elige plataforma (Render o Fly.io)
 4. Configura variables de entorno:
    - `MONGODB_CONNECTION_STRING`: Tu connection string de MongoDB Atlas
    - `MONGODB_DATABASE_NAME`: `MillionPropertyDB`
-5. Railway despliega automáticamente! 🚀
+5. Deploy automático! 🚀
 
-**URL de producción:** `https://tu-proyecto.railway.app/graphql`
+**URL de producción:** `https://tu-proyecto.onrender.com/graphql` o `https://tu-proyecto.fly.dev/graphql`
 
 ---
 

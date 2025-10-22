@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: millionproperty-api
+    runtime: docker
+    plan: free
+    region: oregon
+    buildCommand: dotnet restore && dotnet publish -c Release -o out
+    startCommand: dotnet out/MillionPropertyApi.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:$PORT
+      - key: MONGODB_CONNECTION_STRING
+        sync: false
+      - key: MONGODB_DATABASE_NAME
+        value: MillionPropertyDB
+
