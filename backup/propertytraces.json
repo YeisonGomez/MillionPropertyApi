@@ -1,0 +1,36 @@
+[
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a001"}, "dateSale": {"$date": "2019-03-15T00:00:00Z"}, "name": "Venta a Carlos Méndez", "value": 380000000, "tax": 7600000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f1"},
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a002"}, "dateSale": {"$date": "2021-06-20T00:00:00Z"}, "name": "Venta a Ana Gutiérrez", "value": 450000000, "tax": 9000000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f1"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a003"}, "dateSale": {"$date": "2017-08-10T00:00:00Z"}, "name": "Venta a Jorge Ramírez", "value": 750000000, "tax": 15000000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f2"},
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a004"}, "dateSale": {"$date": "2020-11-25T00:00:00Z"}, "name": "Venta a Sofía Herrera", "value": 850000000, "tax": 17000000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f2"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a005"}, "dateSale": {"$date": "2022-01-15T00:00:00Z"}, "name": "Venta a Ricardo Vargas", "value": 1200000000, "tax": 24000000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f3"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a006"}, "dateSale": {"$date": "2018-05-30T00:00:00Z"}, "name": "Venta a Liliana Castro", "value": 280000000, "tax": 5600000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f4"},
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a007"}, "dateSale": {"$date": "2021-09-12T00:00:00Z"}, "name": "Venta a Pedro Rojas", "value": 320000000, "tax": 6400000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f4"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a008"}, "dateSale": {"$date": "2023-02-20T00:00:00Z"}, "name": "Venta a Valentina Ortiz", "value": 520000000, "tax": 10400000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f5"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a009"}, "dateSale": {"$date": "2016-07-18T00:00:00Z"}, "name": "Venta a Andrés Silva", "value": 580000000, "tax": 11600000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f6"},
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a010"}, "dateSale": {"$date": "2019-10-05T00:00:00Z"}, "name": "Venta a Carolina Díaz", "value": 680000000, "tax": 13600000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f6"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a011"}, "dateSale": {"$date": "2021-04-22T00:00:00Z"}, "name": "Venta a Sebastián Mendoza", "value": 920000000, "tax": 18400000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f8"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a012"}, "dateSale": {"$date": "2020-12-10T00:00:00Z"}, "name": "Venta a Gabriela Reyes", "value": 580000000, "tax": 11600000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0f9"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a013"}, "dateSale": {"$date": "2018-09-14T00:00:00Z"}, "name": "Venta a Miguel Ángel Cruz", "value": 680000000, "tax": 13600000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0fa"},
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a014"}, "dateSale": {"$date": "2021-11-28T00:00:00Z"}, "name": "Venta a Isabella Navarro", "value": 750000000, "tax": 15000000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0fa"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a015"}, "dateSale": {"$date": "2023-05-08T00:00:00Z"}, "name": "Venta a Mateo Suárez", "value": 890000000, "tax": 17800000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0fb"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a016"}, "dateSale": {"$date": "2020-02-28T00:00:00Z"}, "name": "Venta a Camila Ruiz", "value": 650000000, "tax": 13000000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0fd"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a017"}, "dateSale": {"$date": "2019-06-15T00:00:00Z"}, "name": "Venta a Santiago Moreno", "value": 850000000, "tax": 17000000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0ff"},
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a018"}, "dateSale": {"$date": "2022-08-20T00:00:00Z"}, "name": "Venta a Mariana Jiménez", "value": 950000000, "tax": 19000000, "idProperty": "65b1c2d3e4f5a6b7c8d9e0ff"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a019"}, "dateSale": {"$date": "2022-03-12T00:00:00Z"}, "name": "Venta a Lucas Parra", "value": 720000000, "tax": 14400000, "idProperty": "65b1c2d3e4f5a6b7c8d9e101"},
+  
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a020"}, "dateSale": {"$date": "2018-11-20T00:00:00Z"}, "name": "Venta a Emma Castillo", "value": 560000000, "tax": 11200000, "idProperty": "65b1c2d3e4f5a6b7c8d9e102"},
+  {"_id": {"$oid": "65d1e2f3a4b5c6d7e8f9a021"}, "dateSale": {"$date": "2021-07-15T00:00:00Z"}, "name": "Venta a Daniel Gómez", "value": 620000000, "tax": 12400000, "idProperty": "65b1c2d3e4f5a6b7c8d9e102"}
+]
