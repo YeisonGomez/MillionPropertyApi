@@ -101,6 +101,7 @@ Desktop.ini
 # Variables de entorno
 .env
 .env.local
+.env.local.sh
 .env.development
 .env.production
 

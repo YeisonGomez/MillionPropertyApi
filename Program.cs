@@ -36,6 +36,21 @@ var databaseName = Environment.GetEnvironmentVariable("MONGODB_DATABASE_NAME")
     ?? builder.Configuration["DatabaseName"] 
     ?? "MillionPropertyDB";
 
+// Logs de diagnóstico (sin exponer passwords)
+var isFromEnvVar = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") != null;
+var connectionType = connectionString.StartsWith("mongodb+srv://") ? "MongoDB Atlas" : "MongoDB Local";
+var maskedConnection = connectionString.Contains("@") 
+    ? $"{connectionString.Split('@')[0].Split(':')[0]}:***@{connectionString.Split('@')[1]}" 
+    : "mongodb://localhost:***";
+
+Console.WriteLine("=== MongoDB Configuration ===");
+Console.WriteLine($"Source: {(isFromEnvVar ? "Environment Variable ✅" : "appsettings.json ⚠️")}");
+Console.WriteLine($"Type: {connectionType}");
+Console.WriteLine($"Connection: {maskedConnection}");
+Console.WriteLine($"Database: {databaseName}");
+Console.WriteLine($"Environment: {builder.Environment.EnvironmentName}");
+Console.WriteLine("============================");
+
 builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
 {
     return new MongoClient(connectionString);
