@@ -6,8 +6,6 @@ API GraphQL para gestión de propiedades inmobiliarias desarrollada con .NET 9, 
 
 ## 🚀 Inicio Rápido
 
-### 📦 **Para Desarrollo Local**
-
 ### 1️⃣ **Clonar el Proyecto**
 
 ```bash
@@ -15,41 +13,22 @@ git clone <repository-url>
 cd MillionPropertyApi
 ```
 
-### 2️⃣ **Configurar Variables de Entorno (Opcional)**
+### 2️⃣ **Configurar MongoDB Local**
 
-Puedes usar `appsettings.json` o variables de entorno:
+**Desarrollo Local:**
+El proyecto usa `appsettings.Development.json` automáticamente. Si usas MongoDB local, asegúrate de que esté corriendo en `mongodb://localhost:27017`.
 
-```bash
-# Copiar plantilla
-cp .env.example .env
+**Producción (Render, etc.):**
+Configura las variables de entorno:
+- `MONGODB_CONNECTION_STRING`: Connection string de MongoDB Atlas
+- `MONGODB_DATABASE_NAME`: `MillionPropertyDB`
 
-# Editar con tus valores (opcional para desarrollo local)
-# MONGODB_CONNECTION_STRING=mongodb://localhost:27017
-# MONGODB_DATABASE_NAME=MillionPropertyDB
-```
+### 3️⃣ **Importar Data Dummy (Muy Importante! 🎯)**
 
-### 3️⃣ **Instalar MongoDB**
-
-Si no tienes MongoDB instalado:
-
-**macOS:**
-```bash
-brew tap mongodb/brew
-brew install mongodb-community
-brew services start mongodb-community
-```
-
-**Windows/Linux:**
-Descarga desde [mongodb.com/try/download/community](https://www.mongodb.com/try/download/community)
-
-### 4️⃣ **Importar Data Dummy (Muy Importante! 🎯)**
-
-Antes de iniciar el API, importa la data de prueba:
-
-#### **Opción 1: MongoDB Compass (Recomendado)**
+Usa **MongoDB Compass** para importar la data de prueba:
 
 1. Abre **MongoDB Compass**
-2. Conéctate a `mongodb://localhost:27017`
+2. Conéctate a `mongodb://localhost:27017` (o tu MongoDB Atlas)
 3. Crea la base de datos `MillionPropertyDB`
 4. Para cada colección, importa los archivos JSON:
 
@@ -64,18 +43,7 @@ Antes de iniciar el API, importa la data de prueba:
 - Click en la colección → **ADD DATA** → **Import JSON or CSV file**
 - Selecciona el archivo correspondiente → **Import**
 
-#### **Opción 2: Línea de Comandos**
-
-```bash
-cd backup
-
-mongoimport --db MillionPropertyDB --collection owners --file owners.json --jsonArray
-mongoimport --db MillionPropertyDB --collection properties --file properties.json --jsonArray
-mongoimport --db MillionPropertyDB --collection propertyImages --file propertyimages.json --jsonArray
-mongoimport --db MillionPropertyDB --collection propertyTraces --file propertytraces.json --jsonArray
-```
-
-### 5️⃣ **Ejecutar el Proyecto**
+### 4️⃣ **Ejecutar el Proyecto**
 
 ```bash
 dotnet restore
@@ -91,7 +59,7 @@ El API estará disponible en:
 dotnet run --launch-profile https
 ```
 
-### 6️⃣ **Importar Postman Collection**
+### 5️⃣ **Importar Postman Collection**
 
 1. Abre **Postman**
 2. Click en **Import**
@@ -102,38 +70,6 @@ dotnet run --launch-profile https
 - `base_url`: `http://localhost:5189` (o `https://localhost:7287` si usas HTTPS)
 - `owner_id`: Copia un ID después de crear o consultar un Owner
 - `property_id`: Copia un ID después de crear o consultar una Property
-
----
-
-## 🚀 Deployment en Producción
-
-Para desplegar este proyecto en producción, consulta la guía completa:
-
-📖 **[Ver DEPLOYMENT.md](./DEPLOYMENT.md)**
-
-### **Opciones 100% Gratuitas:**
-
-#### **Opción 1: Render (Recomendado para empezar) 🎨**
-- ✅ 100% Gratis (750 horas/mes)
-- ✅ Deploy automático desde GitHub
-- ⚠️ Se duerme después de 15 min sin uso
-
-#### **Opción 2: Fly.io (Mejor rendimiento) 🪰**
-- ✅ 100% Gratis (3 apps)
-- ✅ NO se duerme (siempre activo)
-- ✅ Más rápido que Render
-
-**Resumen rápido:**
-
-1. Configura MongoDB Atlas (gratuito)
-2. Importa data dummy a Atlas
-3. Elige plataforma (Render o Fly.io)
-4. Configura variables de entorno:
-   - `MONGODB_CONNECTION_STRING`: Tu connection string de MongoDB Atlas
-   - `MONGODB_DATABASE_NAME`: `MillionPropertyDB`
-5. Deploy automático! 🚀
-
-**URL de producción:** `https://tu-proyecto.onrender.com/graphql` o `https://tu-proyecto.fly.dev/graphql`
 
 ---
 
