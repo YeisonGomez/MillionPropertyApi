@@ -53,7 +53,19 @@ Console.WriteLine("============================");
 
 builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
 {
-    return new MongoClient(connectionString);
+    var settings = MongoClientSettings.FromConnectionString(connectionString);
+    
+    // Configuración SSL para MongoDB Atlas
+    settings.SslSettings = new MongoDB.Driver.SslSettings
+    {
+        EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12 | System.Security.Authentication.SslProtocols.Tls13
+    };
+    
+    // Timeouts razonables
+    settings.ServerSelectionTimeout = TimeSpan.FromSeconds(10);
+    settings.ConnectTimeout = TimeSpan.FromSeconds(10);
+    
+    return new MongoClient(settings);
 });
 
 builder.Services.AddScoped<IMongoDatabase>(serviceProvider =>
