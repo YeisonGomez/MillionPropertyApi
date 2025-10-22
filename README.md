@@ -284,33 +284,6 @@ query {
 ```
 ☝️ Busca "Bogotá" con precio entre $300M-$600M, mostrando 5 resultados por página
 
-#### **Cómo Funciona Internamente:**
-
-1. **Sin filtros:** Si no pasas ningún parámetro, devuelve todas las propiedades paginadas (página 1, 10 registros)
-
-2. **Con `query`:** Usa una expresión regular para buscar coincidencias en `name` O `address`
-   ```csharp
-   // Busca "Casa" en name O address (case insensitive)
-   filters.Add(filterBuilder.Or(nameFilter, addressFilter));
-   ```
-
-3. **Con `minPrice`/`maxPrice`:** Filtra por rango de precios
-   ```csharp
-   // Solo propiedades >= minPrice
-   filters.Add(filterBuilder.Gte(p => p.Price, filter.MinPrice.Value));
-   ```
-
-4. **Paginación:** Calcula cuántos registros saltar según la página
-   ```csharp
-   var skip = (page - 1) * pageSize;  // Página 2, tamaño 10 = saltar 10
-   ```
-
-5. **Respuesta:** Devuelve las propiedades filtradas + el total de registros encontrados
-   ```csharp
-   return (properties, totalCount);
-   ```
-
----
 
 ## 🗂️ Estructura de Datos
 
