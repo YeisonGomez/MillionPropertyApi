@@ -1,4 +1,5 @@
 using MillionPropertyApi.Modules.Owners.DTOs;
+using MillionPropertyApi.Modules.PropertyTraces.DTOs;
 
 namespace MillionPropertyApi.Modules.Properties.DTOs;
 
@@ -14,6 +15,7 @@ public class PropertyDto
     public OwnerDto? Owner { get; set; }
     public string? FirstImage { get; set; }
     public List<string>? Images { get; set; }
+    public List<PropertyTraceDto>? Traces { get; set; }
 }
 
 public class CreatePropertyDto

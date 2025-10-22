@@ -2,6 +2,8 @@ using MillionPropertyApi.Modules.Properties.DTOs;
 using MillionPropertyApi.Modules.Properties.Interfaces;
 using MillionPropertyApi.Modules.Owners.Interfaces;
 using MillionPropertyApi.Modules.Owners.DTOs;
+using MillionPropertyApi.Modules.PropertyTraces.Interfaces;
+using MillionPropertyApi.Modules.PropertyTraces.DTOs;
 
 namespace MillionPropertyApi.Modules.Properties.GraphQL;
 
@@ -65,7 +67,8 @@ public class PropertyQuery
         string id, 
         [Service] IPropertyService propertyService,
         [Service] IPropertyImageService propertyImageService,
-        [Service] IOwnerService ownerService)
+        [Service] IOwnerService ownerService,
+        [Service] IPropertyTraceService propertyTraceService)
     {
         var property = await propertyService.GetByIdAsync(id);
         if (property == null)
@@ -76,6 +79,7 @@ public class PropertyQuery
         var firstImage = await propertyImageService.GetFirstImageAsync(property.IdProperty!);
         var allImages = await propertyImageService.GetAllImagesAsync(property.IdProperty!);
         
+        // Obtener Owner
         var owner = await ownerService.GetByIdAsync(property.IdOwner);
         OwnerDto? ownerDto = null;
         if (owner != null)
@@ -90,6 +94,18 @@ public class PropertyQuery
             };
         }
 
+        // Obtener Traces
+        var traces = await propertyTraceService.GetByPropertyIdAsync(property.IdProperty!);
+        var traceDtos = traces.Select(trace => new PropertyTraceDto
+        {
+            IdPropertyTrace = trace.IdPropertyTrace,
+            DateSale = trace.DateSale,
+            Name = trace.Name,
+            Value = trace.Value,
+            Tax = trace.Tax,
+            IdProperty = trace.IdProperty
+        }).ToList();
+
         return new PropertyDto
         {
             IdProperty = property.IdProperty,
@@ -101,7 +117,8 @@ public class PropertyQuery
             IdOwner = property.IdOwner,
             Owner = ownerDto,
             FirstImage = firstImage,
-            Images = allImages
+            Images = allImages,
+            Traces = traceDtos
         };
     }
 

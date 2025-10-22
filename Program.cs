@@ -84,6 +84,11 @@ builder.Services.AddModule<PropertyTracesModule>();
 // Configurar GraphQL
 builder.Services
     .AddGraphQLServer()
+    .ModifyOptions(opt =>
+    {
+        opt.EnableDefer = true;
+        opt.EnableStream = true;
+    })
     .AddQueryType(d => d.Name("Query"))
         .AddTypeExtension<PropertyQuery>()
         .AddTypeExtension<OwnerQuery>()
