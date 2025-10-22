@@ -90,6 +90,36 @@ builder.Services
 
 var app = builder.Build();
 
+// Verificar conexión a MongoDB al iniciar
+try
+{
+    Console.WriteLine("🔍 Probando conexión a MongoDB...");
+    var client = app.Services.GetRequiredService<IMongoClient>();
+    var database = client.GetDatabase(databaseName);
+    
+    // Hacer un ping real a la base de datos
+    await database.RunCommandAsync<MongoDB.Bson.BsonDocument>(new MongoDB.Bson.BsonDocument("ping", 1));
+    
+    Console.WriteLine("✅ Conexión a MongoDB EXITOSA");
+    Console.WriteLine($"📊 Database: {databaseName}");
+    
+    // Verificar colecciones existentes
+    var collections = await database.ListCollectionNamesAsync();
+    var collectionsList = await collections.ToListAsync();
+    Console.WriteLine($"📂 Colecciones encontradas: {string.Join(", ", collectionsList)}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine("❌ ERROR: No se pudo conectar a MongoDB");
+    Console.WriteLine($"❌ Tipo: {ex.GetType().Name}");
+    Console.WriteLine($"❌ Mensaje: {ex.Message}");
+    if (ex.InnerException != null)
+    {
+        Console.WriteLine($"❌ Inner Exception: {ex.InnerException.Message}");
+    }
+    Console.WriteLine("⚠️ El servidor continuará, pero las queries fallarán");
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
